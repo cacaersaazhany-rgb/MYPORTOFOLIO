@@ -1,570 +1,883 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MyProfile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Ersa Azhany</title>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <style>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family: 'Poppins', sans-serif;
-  background:#f6f2ff;
-  overflow-x:hidden;
-}
-
-/* NAVBAR */
-.navbar{
-  background: rgba(88, 28, 135, 0.85);
-  backdrop-filter: blur(10px);
-}
-
-.navbar-brand{
-  font-size: 1.5rem;
-  font-weight: bold;
-  color:white !important;
-}
-
-.nav-link{
-  color:white !important;
-  margin-left:15px;
-  transition:0.3s;
-  font-weight:500;
-}
-
-.nav-link:hover{
-  color:#e9d5ff !important;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:
-  linear-gradient(rgba(76, 29, 149, 0.7), rgba(91, 33, 182, 0.7)),
-  url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  color:white;
-}
-
-.hero img{
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  border:5px solid white;
-  object-fit:cover;
-  animation: float 3s ease-in-out infinite;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
-  100%{transform:translateY(0);}
-}
-
-.hero h1{
-  font-size:4rem;
-  font-weight:bold;
-  margin-top:20px;
-}
-
-.typing{
-  color:#e9d5ff;
-  font-size:1.5rem;
-  font-weight:600;
-}
-
-.btn-custom{
-  background:linear-gradient(45deg,#7e22ce,#a855f7);
-  border:none;
-  color:white;
-  padding:12px 25px;
-  border-radius:30px;
-  margin-top:20px;
-  transition:0.4s;
-  box-shadow:0 5px 15px rgba(126,34,206,0.4);
-}
-
-.btn-custom:hover{
-  transform:scale(1.1);
-  background:linear-gradient(45deg,#9333ea,#c084fc);
-}
-
-/* SECTION */
-section{
-  padding:100px 0;
-}
-
-.section-title{
-  text-align:center;
-  font-weight:bold;
-  margin-bottom:50px;
-  color:#6b21a8;
-  position:relative;
-}
-
-.section-title::after{
-  content:'';
-  width:100px;
-  height:4px;
-  background:#a855f7;
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-10px;
-  border-radius:10px;
-}
-
-/* ABOUT */
-.about-box{
-  background:white;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(107,33,168,0.1);
-  transition:0.4s;
-}
-
-.about-box:hover{
-  transform:translateY(-10px);
-}
-
-.badge{
-  font-size:14px;
-  border-radius:10px;
-}
-
-/* PORTFOLIO */
-#portfolio{
-  background:#f3e8ff !important;
-}
-
-.portfolio-card{
-  border:none;
-  overflow:hidden;
-  border-radius:20px;
-  transition:0.4s;
-  box-shadow:0 10px 20px rgba(107,33,168,0.1);
-}
-
-.portfolio-card img{
-  transition:0.5s;
-}
-
-.portfolio-card:hover img{
-  transform:scale(1.1);
-}
-
-.portfolio-card:hover{
-  transform:translateY(-10px);
-}
-
-.card-body h5{
-  color:#6b21a8;
-  font-weight:bold;
-}
-
-/* TABLE */
-.table{
-  overflow:hidden;
-  border-radius:15px;
-}
-
-.table-primary{
-  background:#7e22ce !important;
-  color:white;
-}
-
-/* CONTACT */
-#contact{
-  background:#f3e8ff !important;
-}
-
-.contact-box{
-  background:white;
-  padding:40px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(107,33,168,0.1);
-}
-
-.form-control{
-  border-radius:12px;
-  padding:12px;
-  border:1px solid #d8b4fe;
-}
-
-.form-control:focus{
-  border-color:#9333ea;
-  box-shadow:0 0 10px rgba(147,51,234,0.3);
-}
-
-.btn-primary{
-  background:#7e22ce;
-  border:none;
-  border-radius:12px;
-}
-
-.btn-primary:hover{
-  background:#9333ea;
-}
-
-/* FOOTER */
-footer{
-  background:#581c87;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-
-.social-icons a{
-  color:white;
-  font-size:1.5rem;
-  margin:0 10px;
-  transition:0.3s;
-}
-
-.social-icons a:hover{
-  color:#e9d5ff;
-  transform:scale(1.2);
-}
-
-.list-group-item{
-    border: none;
-    background: transparent;
-    font-size: 16px;
-    padding: 10px 0;
-}
-
-.list-group-item i{
-    margin-right: 10px;
-    color: #7e22ce;
-}
-
-</style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <i class="bi bi-code-slash"></i> MyProfile
-    </a>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
-        <li class="nav-item"><a class="nav-link" href="#portfolio">Portofolio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#table">Matakuliah</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <img src="FotoFormal.jpeg" alt="profil">
+<script src="script.js"></script>
 
-    <h1 data-aos="zoom-in">Ersa Azhany</h1>
+<!-- ===================== LOADER ===================== -->
 
-    <div class="typing" id="typing"></div>
-
-    <p class="mt-3" data-aos="fade-up">
-      Mahasiswa | Front-End Developer | UI Designer
-    </p>
-
-    <button class="btn btn-custom">
-      Lihat Portofolio
-    </button>
-
-    <div class="social-icons mt-4">
-      <a href="https://www.instagram.com/ersa_azhany15?igsh=MTFkOG4za3d4bGEyZQ==" target="blank"><i class="bi bi-instagram"></i></a>
-      <a href="tiktok.com/@someone23715"><i class="bi bi-tiktok"></i></a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <h2 class="section-title">Tentang Saya</h2>
-
-    <div class="row align-items-center">
-      <div class="col-md-6" data-aos="fade-right">
-        <img src="FotoSantai.jpeg"
-        class="img-fluid rounded-4 shadow">
-      </div>
-
-      <div class="col-md-6" data-aos="fade-left">
-        <div class="about-box">
-          <h3>Halo 👋</h3>
-          <p>
-            Saya adalah mahasiswa yang memiliki minat besar di bidang teknologi,
-            desain web, dan pengembangan aplikasi modern.
-          </p>
-
-          <p>
-            Saya suka membuat tampilan website yang menarik, responsif,
-            dan interaktif menggunakan HTML, CSS, Bootstrap, dan JavaScript.
-          </p>
-
-          <div class="mt-4">
-            <span class="badge bg-primary p-2">HTML</span>
-            <span class="badge bg-danger p-2">CSS</span>
-            <span class="badge bg-warning text-dark p-2">JavaScript</span>
-            <span class="badge bg-success p-2">Bootstrap</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<section id="hobi">
-    <div class="container hobby-container">
-        <h2 class="section-title">Hobi Saya</h2>
-
-        <div class="row justify-content-center g-4">
-
-            <div class="col-md-4 col-sm-6 d-flex justify-content-center">
-                <div class="hobby-card text-center">
-                    <i class="bi bi-laptop"></i>
-                    <h6>Coding</h6>
-                    <p>Belajar membuat website dan aplikasi modern.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6 d-flex justify-content-center">
-                <div class="hobby-card text-center">
-                    <i class="bi bi-music-note-beamed"></i>
-                    <h6>Musik</h6>
-                    <p>Mendengarkan musik untuk menemani aktivitas.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-    </div>
+<div id="loader">
+    <div class="spinner"></div>
 </div>
 
-<!-- PORTFOLIO -->
-<section id="portfolio" style="background:#eef2ff;">
-  <div class="container">
-    <h2 class="section-title">Portofolio</h2>
+<!-- Cursor -->
 
-    <div class="row g-4">
+<div class="cursor"></div>
 
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200" class="card-img-top">
-          <div class="card-body">
-            <h5>Website Modern</h5>
-            <p>Membuat website modern dan responsif.</p>
-          </div>
-        </div>
-      </div>
+<!-- Progress Bar -->
 
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200" class="card-img-top">
-          <div class="card-body">
-            <h5>UI/UX Design</h5>
-            <p>Desain antarmuka yang menarik dan user friendly.</p>
-          </div>
-        </div>
-      </div>
+<div id="progress-bar"></div>
 
-      <div class="col-md-4" data-aos="zoom-in">
-        <div class="card portfolio-card">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200" class="card-img-top">
-          <div class="card-body">
-            <h5>Mobile App</h5>
-            <p>Pengembangan aplikasi mobile sederhana.</p>
-          </div>
-        </div>
-      </div>
+<!-- Particles -->
 
-    </div>
-  </div>
+<div id="particles-js"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+
+<nav class="navbar navbar-expand-lg fixed-top">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">
+
+<i class="bi bi-stars"></i>
+
+MyPortfolio
+
+</a>
+
+<button
+class="navbar-toggler"
+
+type="button"
+
+data-bs-toggle="collapse"
+
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div
+class="collapse navbar-collapse"
+
+id="navbarNav">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link active" href="#home">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#about">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#skill">Skills</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#portfolio">Portfolio</a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="#alamat">Alamat</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#contact">Contact</a>
+</li>
+
+</ul>
+
+<button class="btn dark-btn ms-3" id="darkMode">
+
+<i class="bi bi-moon-stars-fill"></i>
+
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ===================== HERO ===================== -->
+
+<section id="home" class="hero">
+
+<div class="container">
+
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+
+<span class="hero-badge">
+
+👋 Halo, Selamat Datang
+
+</span>
+
+<h1 data-aos="fade-right">
+
+Saya
+
+<span class="gradient-text">
+
+Ersa Azhany
+
+</span>
+
+</h1>
+
+<h3 id="typing"></h3>
+
+<p data-aos="fade-up">
+
+Mahasiswa Sistem Komputer yang memiliki minat
+di bidang Front-End Development, UI/UX Design,
+dan pengembangan website modern yang responsif
+serta interaktif.
+
+</p>
+
+<div class="hero-button">
+
+<a href="#portfolio" class="btn btn-main">
+
+Lihat Portfolio
+
+</a>
+
+<a href="#contact" class="btn btn-outline-light">
+
+Hubungi Saya
+
+</a>
+
+</div>
+
+<div class="social mt-4">
+
+<a href="#">
+<i class="bi bi-instagram"></i>
+</a>
+
+<a href="#">
+<i class="bi bi-github"></i>
+</a>
+
+<a href="#">
+<i class="bi bi-linkedin"></i>
+</a>
+
+<a href="#">
+<i class="bi bi-tiktok"></i>
+</a>
+
+</div>
+
+</div>
+
+<div class="col-lg-6 text-center">
+
+<img
+src="FotoFormal.jpeg"
+class="hero-img"
+alt="Foto Profil"
+data-aos="zoom-in">
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- TABLE -->
-<section id="table">
-  <div class="container">
-    <h2 class="section-title">Matakuliah Semester Ini</h2>
+<!-- ===================== ABOUT ===================== -->
 
-    <div class="table-responsive" data-aos="fade-up">
-      <table class="table table-hover table-bordered text-center align-middle">
-        <thead class="table-primary">
-          <tr>
-            <th>No</th>
-            <th>Matakuliah</th>
-            <th>Dosen</th>
-            <th>SKS</th>
-          </tr>
-        </thead>
+<section id="about">
 
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Sistem Operasi</td>
-            <td>Ibu Hanna Willa Dhany, S.Kom., M.Kom.</td>
-            <td>2</td>
-          </tr>
+<div class="container">
 
-          <tr>
-            <td>2</td>
-            <td>Pengantar Internet of Things</td>
-            <td>Bapak Hendry, S.Kom., M.Kom.</td>
-            <td>2</td>
-          </tr>
+<h2 class="title" data-aos="fade-up">
+Tentang Saya
+</h2>
 
-          <tr>
-            <td>3</td>
-            <td>Pemrograman Web</td>
-            <td>Bapak Ruly Dwi Arista, S.Kom., M.Kom.</td>
-            <td>4</td>
-          </tr>
+<div class="row align-items-center">
 
-          <tr>
-            <td>4</td>
-            <td>Perancangan Sistem Digital</td>
-            <td>Bapak Dr Afif Badawi, S.T., M.Kom.</td>
-            <td>4</td>
-          </tr>
+<div class="col-lg-5 text-center" data-aos="fade-right">
 
-           <tr>
-            <td>5</td>
-            <td>Aljabar Linier dan Matriks</td>
-            <td>Bapak Dr Afif Badawi, S.T., M.Kom.</td>
-            <td>2</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+<img src="FotoSantai.jpeg"
+class="about-img"
+alt="About">
+
+</div>
+
+<div class="col-lg-7" data-aos="fade-left">
+
+<div class="glass-card">
+
+<h3>Halo 👋</h3>
+
+<p>
+
+Saya adalah mahasiswa Sistem Komputer yang memiliki
+ketertarikan besar pada dunia teknologi,
+pengembangan website, UI/UX Design,
+dan Front-End Development.
+
+</p>
+
+<p>
+
+Saya senang membuat website yang modern,
+responsif, menarik, dan mudah digunakan.
+Saat ini saya terus mempelajari HTML, CSS,
+Bootstrap, JavaScript, serta teknologi web lainnya.
+
+</p>
+
+<div class="skill-badge mt-4">
+
+<span>HTML</span>
+
+<span>CSS</span>
+
+<span>Bootstrap</span>
+
+<span>JavaScript</span>
+
+<span>PHP</span>
+
+<span>MySQL</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact" style="background:#eef2ff;">
-  <div class="container">
-    <h2 class="section-title">Hubungi Saya</h2>
+<!-- ===================== SKILLS ===================== -->
 
-    <div class="row justify-content-center">
-      <div class="col-md-8">
+<section id="skill">
 
-        <div class="contact-box" data-aos="zoom-in">
+<div class="container">
 
-          <form>
+<h2 class="title" data-aos="fade-up">
 
-            <div class="mb-3">
-              <label class="form-label">Nama</label>
-              <input type="text" class="form-control" placeholder="Masukkan nama">
+My Skills
+
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="skill-card" data-aos="zoom-in">
+
+<i class="bi bi-filetype-html"></i>
+
+<h5>HTML</h5>
+
+<div class="progress mt-3">
+
+<div class="progress-bar bg-danger"
+style="width:95%">
+
+95%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="skill-card" data-aos="zoom-in">
+
+<i class="bi bi-filetype-css"></i>
+
+<h5>CSS</h5>
+
+<div class="progress mt-3">
+
+<div class="progress-bar bg-primary"
+style="width:90%">
+
+90%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="skill-card" data-aos="zoom-in">
+
+<i class="bi bi-bootstrap-fill"></i>
+
+<h5>Bootstrap</h5>
+
+<div class="progress mt-3">
+
+<div class="progress-bar bg-purple"
+style="width:80%">
+
+80%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="skill-card" data-aos="zoom-in">
+
+<i class="bi bi-filetype-js"></i>
+
+<h5>JavaScript</h5>
+
+<div class="progress mt-3">
+
+<div class="progress-bar bg-warning"
+style="width:85%">
+
+85%
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================== HOBI ===================== -->
+
+<section id="hobi">
+
+<div class="container">
+
+<h2 class="title" data-aos="fade-up">
+
+Hobi Saya
+
+</h2>
+
+<div class="row g-4 justify-content-center">
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-card hobby-card text-center"
+data-aos="flip-left">
+
+<i class="bi bi-laptop display-3"></i>
+
+<h4>Coding</h4>
+
+<p>
+
+Belajar membuat website modern
+dan aplikasi berbasis web.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-lg-3 col-md-6">
+
+<div class="glass-card hobby-card text-center"
+data-aos="flip-left">
+
+<i class="bi bi-music-note-beamed display-3"></i>
+
+<h4>Musik</h4>
+
+<p>
+
+Mendengarkan musik untuk
+meningkatkan semangat belajar.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================== COUNTER ===================== -->
+
+<section class="counter-section">
+
+<div class="container">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+
+<h1 class="counter"
+data-target="20">
+
+0
+
+</h1>
+
+<p>
+
+Project
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="counter"
+data-target="15">
+
+0
+
+</h1>
+
+<p>
+
+Sertifikat
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="counter"
+data-target="8">
+
+0
+
+</h1>
+
+<p>
+
+Skill
+
+</p>
+
+</div>
+
+<div class="col-md-3">
+
+<h1 class="counter"
+data-target="2">
+
+0
+
+</h1>
+
+<p>
+
+Pengalaman
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================== PORTFOLIO ===================== -->
+
+<section id="portfolio">
+
+    <div class="container">
+
+        <h2 class="title" data-aos="fade-up">
+            Portfolio
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="portfolio-card" data-aos="zoom-in">
+
+                    <img src="https://picsum.photos/500/350?1" class="img-fluid" alt="Portfolio">
+
+                    <div class="portfolio-overlay">
+
+                        <h4>Website Portfolio</h4>
+
+                        <p>HTML • CSS • Bootstrap</p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="mb-3">
-              <label class="form-label">Email</label>
-              <input type="email" class="form-control" placeholder="Masukkan email">
+            <div class="col-lg-4 col-md-6">
+
+                <div class="portfolio-card" data-aos="zoom-in">
+
+                    <img src="https://picsum.photos/500/350?2" class="img-fluid" alt="Portfolio">
+
+                    <div class="portfolio-overlay">
+
+                        <h4>Landing Page</h4>
+
+                        <p>Responsive Design</p>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="mb-3">
-              <label class="form-label">Pesan</label>
-              <textarea rows="5" class="form-control" placeholder="Tulis pesan"></textarea>
+            <div class="col-lg-4 col-md-6">
+
+                <div class="portfolio-card" data-aos="zoom-in">
+
+                    <img src="https://picsum.photos/500/350?3" class="img-fluid" alt="Portfolio">
+
+                    <div class="portfolio-overlay">
+
+                        <h4>UI / UX Design</h4>
+
+                        <p>Modern Interface</p>
+
+                    </div>
+
+                </div>
+
             </div>
-
-            <button class="btn btn-primary w-100">
-              <i class="bi bi-send"></i> Kirim Pesan
-            </button>
-
-          </form>
 
         </div>
 
-      </div>
     </div>
-  </div>
+
 </section>
 
-<!-- FOOTER -->
+<!-- ===================== MATA KULIAH ===================== -->
+
+<section id="matakuliah">
+
+    <div class="container">
+
+        <h2 class="title" data-aos="fade-up">
+            Mata Kuliah Semester Ini
+        </h2>
+
+        <div class="glass-card" data-aos="zoom-in">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle text-center">
+
+                    <thead class="table-primary">
+
+                        <tr>
+
+                            <th>No</th>
+                            <th>Mata Kuliah</th>
+                            <th>SKS</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>1</td>
+                            <td>Pemrograman Web</td>
+                            <td>4</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>2</td>
+                            <td>Pengantar Internet of Things</td>
+                            <td>2</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>3</td>
+                            <td>Sistem Operasi</td>
+                            <td>2</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>4</td>
+                            <td>Perancangan Sistem Digital</td>
+                            <td>4</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>5</td>
+                            <td>Aljabar Linier dan Matriks</td>
+                            <td>2</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================== ALAMAT ===================== -->
+
+<section id="alamat">
+
+    <div class="container">
+
+        <h2 class="title" data-aos="fade-up">
+            Alamat Saya
+        </h2>
+
+        <div class="row g-4">
+
+            <!-- Informasi -->
+
+            <div class="col-lg-5" data-aos="fade-right">
+
+                <div class="glass-card">
+
+                    <h3><i class="bi bi-geo-alt-fill"></i> Informasi Alamat</h3>
+
+                    <p>
+                        <strong>Nama :</strong><br>
+                        Ersa Azhany
+                    </p>
+
+                    <p>
+                        <strong>Alamat :</strong><br>
+                        Kec T.Morawa desa Wonosari Kab Deli Serdang, Sumatera Utara
+                    </p>
+
+                    <p>
+                        <strong>Email :</strong><br>
+                        cacaersaazhany@gmail.com
+                    </p>
+
+                    <p>
+                        <strong>No. HP :</strong><br>
+                        081264603889
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Google Maps -->
+
+            <div class="col-lg-7" data-aos="fade-left">
+
+                <div class="map-card">
+
+                   <iframe
+                        src="https://www.google.com/maps?q=Pasar+7+Desa+Wonosari+Kecamatan+Tanjung+Morawa+Kabupaten+Deli+Serdang&output=embed"
+                        width="100%"
+                        height="350"
+                        style="border:0; border-radius:20px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="title" data-aos="fade-up">
+
+            Hubungi Saya
+
+        </h2>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="glass-card contact-card" data-aos="zoom-in">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <input type="text"
+                            class="form-control"
+                            placeholder="Nama Lengkap">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <input type="email"
+                            class="form-control"
+                            placeholder="Alamat Email">
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <textarea
+                            class="form-control"
+                            rows="5"
+                            placeholder="Tulis pesan..."></textarea>
+
+                        </div>
+
+                        <button class="btn btn-main w-100">
+
+                            <i class="bi bi-send-fill"></i>
+
+                            Kirim Pesan
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+
 <footer>
-  <p>© 2026 Web Profil Interaktif | Dibuat dengan Bootstrap</p>
+
+    <div class="container text-center">
+
+        <div class="social mb-4">
+
+            <a href="https://www.instagram.com/ersa_azhany15?igsh=MTFkOG4za3d4bGEyZQ=="><i class="bi bi-instagram"></i></a>
+
+            <a href="https://github.com/ersaazhany"><i class="bi bi-github"></i></a>
+
+        </div>
+
+        <p>
+
+            © 2026 Ersa Azhany | Dibuat dengan ❤️ menggunakan HTML, CSS, Bootstrap & JavaScript
+
+        </p>
+
+    </div>
+
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- Tombol Scroll ke Atas -->
+
+<button id="topBtn">
+
+    <i class="bi bi-arrow-up"></i>
+
+</button>
+
+<!-- Bootstrap -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- AOS -->
+
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<script>
-  AOS.init({
-    duration:1000,
-    once:true
-  });
+<!-- Particles.js -->
 
-  // Typing Effect
-  const text = [
-    "Front-End Developer",
-    "UI/UX Designer",
-    "Mahasiswa Sistem Komputer"
-  ];
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-  let count = 0;
-  let index = 0;
-  let currentText = "";
-  let letter = "";
+<!-- Vanilla Tilt -->
 
-  (function type(){
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
-    if(count === text.length){
-      count = 0;
-    }
+<!-- JavaScript -->
 
-    currentText = text[count];
-    letter = currentText.slice(0, ++index);
-
-    document.getElementById('typing').textContent = letter;
-
-    if(letter.length === currentText.length){
-      count++;
-      index = 0;
-      setTimeout(type, 1200);
-    }else{
-      setTimeout(type, 100);
-    }
-
-  })();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
